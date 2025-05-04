@@ -1,0 +1,97 @@
+@extends('layouts.app', ['title' => 'Data Warga'])
+
+@section('content')
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('library/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('library/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
+    @endpush
+
+    <div class="main-content">
+        <section class="section">
+            <div class="section-header">
+                <h1>Data Akun Warga</h1>
+                <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                    <div class="breadcrumb-item"><a href="#">Modules</a></div>
+                    <div class="breadcrumb-item">DataTables</div>
+                </div>
+            </div>
+
+            <div class="section-body">
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between">
+                                <h4>Akun Warga </h4>
+                                <a href="{{ route('warga.tambah') }}" class="btn btn-success justi mt-4 p-2">+ Tambah Warga</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" id="table-1">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">
+                                                    #
+                                                </th>
+                                                <th>Nama</th>
+                                                <th>Alamat</th>
+                                                <th>POS</th>
+                                                <th>Dusun</th>
+                                                <th>Tempat Lahir</th>
+                                                <th>Tanggal Lahir</th>
+                                                <th>Jernis Kelamin</th>
+                                                <th>Agama</th>
+                                                <th>NIK</th>
+                                                <th>KK</th>
+                                                <th>Ibu</th>
+                                                <th>Ayah</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($data as $i => $item)
+                                                <tr>
+                                                    <td>
+                                                        {{ ++$i }}
+                                                    </td>
+                                                    <td>{{ $item->nama }}</td>
+                                                    <td>{{ $item->alamat }}</td>
+                                                    <td>{{ $item->id_pos }}</td>
+                                                    <td>{{ $item->dusun }}</td>
+                                                    <td>{{ $item->tempat_lahir }}</td>
+                                                    <td>{{ $item->tgl_lahir }}</td>
+                                                    <td>{{ $item->jk }}</td>
+                                                    <td>{{ $item->agama }}</td>
+                                                    <td>{{ $item->nik }}</td>
+                                                    <td>{{ $item->kk }}</td>
+                                                    <td>{{ $item->ibu_kandung }}</td>
+                                                    <td>{{ $item->ayah_kandung }}</td>
+                                                    <td>
+                                                        <a href="{{ route('warga.edit', $item->id) }}"
+                                                            class="btn btn-warning">Edit</a>
+                                                        <button onclick="deleteData({{ $item->id }}, 'warga')"
+                                                            class="btn btn-danger">Hapus</button>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    @push('scripts')
+        <script src="{{ asset('library/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('library/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('library/datatables.net-select-bs4/js/select.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('js/page/modules-datatables.js') }}"></script>
+    @endpush
+@endsection
