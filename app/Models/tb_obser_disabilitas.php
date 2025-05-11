@@ -9,7 +9,7 @@ class tb_obser_disabilitas extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id_warga',
+        'id_guru_honorer',
         'id_disabilitas',
         'skor',
     ];

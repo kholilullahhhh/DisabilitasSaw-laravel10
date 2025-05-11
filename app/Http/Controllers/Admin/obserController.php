@@ -14,10 +14,10 @@ class obserController extends Controller
     {
         //$data = tb_obser_disabilitas::orderBy('kecamatan', 'DESC')->get();
         $data = DB::table('tb_obser_disabilitas')
-        ->select('tb_obser_disabilitas.id','tb_wargas.nama', 'tb_disabilitas.kriteria', 'tb_disabilitas.ket','tb_obser_disabilitas.skor')
-        ->leftJoin('tb_wargas','tb_obser_disabilitas.id_warga','=','tb_wargas.id')
+        ->select('tb_obser_disabilitas.id','tb_guru_honorers.nama', 'tb_disabilitas.kriteria', 'tb_disabilitas.ket','tb_obser_disabilitas.skor')
+        ->leftJoin('tb_guru_honorers','tb_obser_disabilitas.id_guru_honorer','=','tb_guru_honorers.id')
         ->leftJoin('tb_disabilitas','tb_obser_disabilitas.id_disabilitas','=','tb_disabilitas.id')
-        ->orderBy('tb_wargas.nama','asc')
+        ->orderBy('tb_guru_honorers.nama','asc')
         ->get();
         return view('pages.obser.index', ['menu' => 'obser'], compact('data'));
     }

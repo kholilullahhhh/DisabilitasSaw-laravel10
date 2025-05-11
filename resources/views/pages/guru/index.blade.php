@@ -24,55 +24,46 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
-                                <h4>Akun Warga </h4>
-                                <a href="{{ route('warga.tambah') }}" class="btn btn-success justi mt-4 p-2">+ Tambah Warga</a>
+                                <h4>Data Guru Honorer</h4>
+                                <a href="{{ route('guru.tambah') }}" class="btn btn-success mt-4 p-2">+ Tambah
+                                    Guru</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped" id="table-1">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">
-                                                    #
-                                                </th>
+                                                <th>#</th>
                                                 <th>Nama</th>
                                                 <th>Alamat</th>
-                                                <th>POS</th>
-                                                <th>Dusun</th>
                                                 <th>Tempat Lahir</th>
                                                 <th>Tanggal Lahir</th>
-                                                <th>Jernis Kelamin</th>
+                                                <th>No HP</th>
+                                                <th>Jenis Kelamin</th>
                                                 <th>Agama</th>
-                                                <th>NIK</th>
-                                                <th>KK</th>
-                                                <th>Ibu</th>
-                                                <th>Ayah</th>
+                                                <th>POS</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($data as $i => $item)
                                                 <tr>
-                                                    <td>
-                                                        {{ ++$i }}
-                                                    </td>
+                                                    <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $item->nama }}</td>
                                                     <td>{{ $item->alamat }}</td>
-                                                    <td>{{ $item->id_pos }}</td>
-                                                    <td>{{ $item->dusun }}</td>
                                                     <td>{{ $item->tempat_lahir }}</td>
-                                                    <td>{{ $item->tgl_lahir }}</td>
-                                                    <td>{{ $item->jk }}</td>
-                                                    <td>{{ $item->agama }}</td>
-                                                    <td>{{ $item->nik }}</td>
-                                                    <td>{{ $item->kk }}</td>
-                                                    <td>{{ $item->ibu_kandung }}</td>
-                                                    <td>{{ $item->ayah_kandung }}</td>
+                                                    <td>{{ \Carbon\Carbon::parse($item->tgl_lahir)->format('d-m-Y H:i') }}</td>
+                                                    <td>{{ $item->no_hp }}</td>
+                                                    <td>{{ $item->jkl == 'l' ? 'Laki-laki' : 'Perempuan' }}</td>
+                                                    <td>{{ ucfirst($item->agama) }}</td>
+                                                    <td>{{ $item->pos->nama ?? $item->id_pos }}</td>
+                                                    <td>{{ ucfirst($item->status) }}</td>
                                                     <td>
-                                                        <a href="{{ route('warga.edit', $item->id) }}"
-                                                            class="btn btn-warning">Edit</a>
-                                                        <button onclick="deleteData({{ $item->id }}, 'warga')"
-                                                            class="btn btn-danger">Hapus</button>
+                                                        <a href="{{ route('guru.edit', $item->id) }}"
+                                                            class="btn btn-warning btn-sm">Edit</a>
+                                                        <button onclick="deleteData({{ $item->id }}, 'guru')"
+                                                            class="btn btn-danger btn-sm">Hapus</button>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -83,6 +74,7 @@
                         </div>
                     </div>
                 </div>
+
 
             </div>
         </section>

@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('tb_obser_disabilitas', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_warga');
+            $table->integer('id_guru_honorer');
             $table->integer('id_disabilitas');
             $table->integer('skor');
             $table->timestamps();

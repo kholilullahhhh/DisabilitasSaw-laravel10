@@ -32,7 +32,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>id_warga</label>
-                                                    <input type="text"  name="id_warga" required value="{{ $data->id_warga }}" class="form-control">
+                                                    <input type="text"  name="id_guru_honorer" required value="{{ $data->id_guru_honorer }}" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">

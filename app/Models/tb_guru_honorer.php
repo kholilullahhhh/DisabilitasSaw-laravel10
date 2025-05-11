@@ -5,21 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tb_warga extends Model
+class tb_guru_honorer extends Model
 {
     use HasFactory;
     protected $fillable = [
         'id_pos',
-        'dusun',
-        'alamat',
         'nama',
+        'alamat',
         'tempat_lahir',
         'tgl_lahir',
-        'jk',
+        'no_hp',
+        'jkl',
         'agama',
-        'nik',
-        'kk',
-        'ibu_kandung',
-        'ayah_kandung',
+        'status',
     ];
 }

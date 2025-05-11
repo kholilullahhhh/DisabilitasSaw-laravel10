@@ -33,7 +33,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group ">
                                                 <label>Id Warga</label>
-                                                <input type="text" name="id_warga" class="form-control" required>
+                                                <input type="text" name="id_guru_honorer" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-4">

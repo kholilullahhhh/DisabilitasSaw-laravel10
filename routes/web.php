@@ -52,14 +52,14 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
             Route::get('/tambah', 'UserController@viewBaru')->name('user.tambah');
             // /
         });
-        Route::prefix('warga')->group(function () {
-            Route::get('/', 'wargaController@index')->name('warga.index');
-            Route::get('/create', 'wargaController@create')->name('warga.create');
-            Route::post('/store', 'wargaController@store')->name('warga.store');
-            Route::get('/edit/{id}', 'wargaController@edit')->name('warga.edit');
-            Route::put('/update', 'wargaController@update')->name('warga.update');
-            Route::post('/hapus/{id}', 'wargaController@hapus')->name('warga.hapus');
-            Route::get('/tambah', 'wargaController@viewBaru')->name('warga.tambah');
+        Route::prefix('guru')->group(function () {
+            Route::get('/', 'guruController@index')->name('guru.index');
+            Route::get('/create', 'guruController@create')->name('guru.create');
+            Route::post('/store', 'guruController@store')->name('guru.store');
+            Route::get('/edit/{id}', 'guruController@edit')->name('guru.edit');
+            Route::put('/update', 'guruController@update')->name('guru.update');
+            Route::post('/hapus/{id}', 'guruController@hapus')->name('guru.hapus');
+            Route::get('/tambah', 'guruController@viewBaru')->name('guru.tambah');
             // /
         });
 

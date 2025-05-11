@@ -29,52 +29,57 @@
                             </div>
 
                             <div class="card-body">
-                                <form action="{{ route('warga.store') }}" method="post">
+                                <form action="{{ route('guru.store') }}" method="post">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="form-group ">
+                                            <div class="form-group">
                                                 <label>Nama</label>
                                                 <input type="text" name="nama" class="form-control" required>
                                             </div>
                                         </div>
+
                                         <div class="col-md-4">
-                                            <div class="form-group ">
+                                            <div class="form-group">
                                                 <label>Alamat</label>
                                                 <input type="text" name="alamat" class="form-control" required>
                                             </div>
                                         </div>
+
                                         <div class="col-md-4">
-                                            <div class="form-group ">
+                                            <div class="form-group">
                                                 <label>POS</label>
-                                                <input type="text" name="id_pos" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group ">
-                                                <label>Dusun</label>
-                                                <input type="text" name="dusun" class="form-control" required>
+                                                <input type="number" name="id_pos" class="form-control" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
-                                            <div class="form-group ">
+                                            <div class="form-group">
                                                 <label>Tempat Lahir</label>
                                                 <input type="text" name="tempat_lahir" class="form-control" required>
                                             </div>
                                         </div>
+
                                         <div class="col-md-4">
-                                            <div class="form-group ">
+                                            <div class="form-group">
                                                 <label>Tanggal Lahir</label>
-                                                <input type="text" name="tgl_lahir" class="form-control" required>
+                                                <input type="datetime-local" name="tgl_lahir" class="form-control" required>
                                             </div>
                                         </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>No HP</label>
+                                                <input type="text" name="no_hp" class="form-control" required>
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Jenis Kelamin</label>
-                                                <select name="jk" id="" class="form-control">
-                                                    <option value="L">Laki-Laki</option>
-                                                    <option value="P">Perempuan</option>
+                                                <select name="jkl" class="form-control" required>
+                                                    <option value="l">Laki-Laki</option>
+                                                    <option value="p">Perempuan</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -82,7 +87,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Agama</label>
-                                                <select name="agama" class="form-control">
+                                                <select name="agama" class="form-control" required>
                                                     <option value="islam">Islam</option>
                                                     <option value="kristen">Kristen</option>
                                                     <option value="katolik">Katolik</option>
@@ -93,40 +98,18 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>NIK</label>
-                                                <input type="text" name="nik" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>KK</label>
-                                                <input type="text" name="kk" class="form-control" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Ibu Kandung</label>
-                                                <input type="text" name="ibu_kandung" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Ayah Kandung</label>
-                                                <input type="text" name="ayah_kandung" class="form-control" required>
-                                            </div>
-                                        </div>
+                                        {{-- Status bersifat default "honorer", tidak perlu input manual --}}
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md">
-                                            <button type="submit" class="btn btn-success justi mt-4 p-2">Simpan Data Baru</button>
+                                            <button type="submit" class="btn btn-success mt-4 p-2">Simpan Guru
+                                                Honorer</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
+
                         </div>
                     </div>
                 </div>

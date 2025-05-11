@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\tb_guru_honorer;
 use Illuminate\Http\Request;
-use App\Models\tb_warga;
 
-class wargaController extends Controller
+class GuruController extends Controller
 {
     //
     public function index()
     {
-        $data = tb_warga::get();
-        return view('pages.warga.index', ['menu' => 'warga'], compact('data'));
+        $data = tb_guru_honorer::get();
+        return view('pages.guru.index', ['menu' => 'guru'], compact('data'));
     }
     public function store(Request $request)
     {
         $req = $request->all();
-        tb_warga::create($req);
-        return redirect()->route('warga.index')->with('message', 'store');
+        tb_guru_honorer::create($req);
+        return redirect()->route('guru.index')->with('message', 'store');
     }
 
     /**
@@ -26,7 +26,7 @@ class wargaController extends Controller
      */
     public function viewBaru()
     {
-        return view('pages.warga.create', ['menu' => 'warga']);
+        return view('pages.guru.create', ['menu' => 'guru']);
     }
 
     /**
@@ -34,8 +34,8 @@ class wargaController extends Controller
      */
     public function edit(string $id)
     {
-        $data = tb_warga::find($id);
-        return view('pages.warga.edit', ['menu' => 'warga'], compact('data'));
+        $data = tb_guru_honorer::find($id);
+        return view('pages.guru.edit', ['menu' => 'guru'], compact('data'));
     }
 
     /**
@@ -44,9 +44,9 @@ class wargaController extends Controller
     public function update(Request $request)
     {
         $req = $request->all();
-        $data = tb_warga::find($req['id']);
+        $data = tb_guru_honorer::find($req['id']);
         $data->update($req);
-        return redirect()->route('warga.index')->with('message', 'update');
+        return redirect()->route('guru.index')->with('message', 'update');
     }
 
     /**
@@ -54,7 +54,7 @@ class wargaController extends Controller
      */
     public function hapus(string $id)
     {
-        $data = tb_warga::find($id);
+        $data = tb_guru_honorer::find($id);
         $data->delete();
         return response()->json($data);
     }
