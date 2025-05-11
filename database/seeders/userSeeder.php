@@ -20,7 +20,7 @@ class userSeeder extends Seeder
                 'name' => 'user',
                 'username' => 'user',
                 'password' => bcrypt('user'),
-                'role' => 'member',
+                'role' => 'user',
             ],
         ];
 

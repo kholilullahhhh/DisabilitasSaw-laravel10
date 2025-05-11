@@ -37,6 +37,16 @@
                     <div class="invalid-feedback">
                         please fill in your password
                     </div>
+                    <div class="form-group">
+                    <div class="d-block">
+                        <label for="password" class="control-label">Login Sebagai</label>
+                    </div>
+                    <select class="form-control  selectric" name="role" id="role">
+                        <option value="">-- Pilih Role --</option>
+                        <option value="user">Guru Honorer</option>
+                        <option value="admin">Staf IT/ Tata Usaha</option>
+                    </select>
+                </div>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
